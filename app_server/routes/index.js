@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const ctrlCars = require('../controllers/cars');
 
-const ctrlMain = require('../controllers/main'); 
-/* GET home page. */
-router.get('/index', ctrlMain.index); 
-router.get('/viewcars', ctrlMain.viewcars);
-router.get('/signup', ctrlMain.signup);
+
+
+/* cars page*/
+router.get('/', ctrlCars.homelist);
+
+
+
+
 module.exports = router;
