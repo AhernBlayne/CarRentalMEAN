@@ -53,15 +53,33 @@ head
     #myUL li a:hover:not(.header) {
     background-color: #eee;
     }
-input#myInput(type='text' onkeyup='myFunction()' placeholder='Search for cars..' title='Type in a name')
+input#myInput(type='text'  placeholder='Search for cars..' title='Type in a name')
+input(type='submit' class="btn btn-outline-success" onclick='myFunction()' value='Submit')
+
 ul#myUL
  each car in cars
   li
     a(href="#")= " Car Name: " + car.name + " Car Price: " +car.price
 	
 script.
+     function validation() {
+     if(document.getElementById('myInput').value === ""){
+        alert("enter something valid");
+        document.getElementById('myInput').innerHTML = "";
+        return false;
+        }
+        else if (!document.getElementById('myInput').value.match(/^[A-Za-z]+$/)){
+          alert("Can only enter letters");
+        document.getElementById('myInput').innerHTML = "";
+        return false;
+        }
+        else{return true;}
+            }
+        
+    
   function myFunction() {
-  var input, filter, ul, li, a, i, txtValue;
+  if(validation() == true){
+  let input, filter, ul, li, a, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   ul = document.getElementById("myUL");
@@ -73,6 +91,7 @@ script.
   li[i].style.display = "";
   } else {
   li[i].style.display = "none";
+  }
   }
   }
   }
