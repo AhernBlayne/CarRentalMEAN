@@ -1,15 +1,11 @@
-
 const request = require('request');
+const mongoose = require('mongoose');
 const apiOptions = { 
 server : 'http://localhost:3000' 
-}; 
-if (process.env.NODE_ENV === 'production') { 
-apiOptions.server = 'https://pure-temple-67771.herokuapp.com'; 
-}
-
+};
 
 const requestOptions = { 
-url : 'http://localhost/api/cars', 
+url : 'http://localhost:3000/api/cars', 
 method : 'GET', 
 json : {},
 qs : { 
@@ -23,7 +19,7 @@ if (err) {
 console.log(err); 
 } else if (response.statusCode === 200) { 
 console.log(body); 
-} else { 
+} else {
 console.log(response.statusCode); 
 } 
 });
