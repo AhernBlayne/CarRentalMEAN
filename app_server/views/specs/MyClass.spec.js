@@ -8,3 +8,9 @@ var expect = chai.expect;
     expect(MyObj.add(1,2)).to.be.equal(3);
     });
 });
+
+ describe("Test suit", function() {
+    it("Test the validation method", function() {
+    expect(MyObj.validation("Bob")).to.be.equal(true);
+    });
+});
