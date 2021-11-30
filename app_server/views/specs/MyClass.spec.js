@@ -1,4 +1,4 @@
-let MyClass = require("../src/myclass.js");
+let MyClass = require("../src/MyClass.js");
 let MyObj = new MyClass();
 var chai = require('chai');
 var expect = chai.expect;
